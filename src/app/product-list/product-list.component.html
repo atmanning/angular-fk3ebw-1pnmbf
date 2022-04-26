@@ -1,0 +1,42 @@
+<h2>Arthur's Products</h2>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+
+Modified by:
+Arthur Manning - atmanning@emmaus.edu
+
+-->
+
+<!-- working through the tutorial 
+see: https://angular.io/start
+
+-->
+<div *ngFor="let product of products">
+
+<h3>
+<a [title]="product.name + ' details'">
+{{ product.name }}
+</a>
+</h3>
+<p *ngIf="product.description; else noDesc">
+Description: {{ product.description }}
+</p>
+
+<!-- see https://ultimatecourses.com/blog/angular-ngif-else-then -->
+<ng-template #noDesc>
+  -- no description --
+</ng-template><br/>
+
+<button type="button" (click)="share(product.name)">
+Share
+</button>
+
+<!-- display alerts for expensive products-->
+<app-product-alerts
+  [product]="product">
+</app-product-alerts>
+
+</div>
