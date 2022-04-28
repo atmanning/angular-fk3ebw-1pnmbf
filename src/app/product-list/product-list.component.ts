@@ -8,10 +8,21 @@ import { products } from '../products';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
+  // this is confusing!  ???
   products = products;
 
   share( p:string ) { 
     window.alert('The product ' + p + ' has been shared!');
+  }
+
+  // define what to do when the product-alert child emits a notification
+  // the call to this is in the .html params of the product
+  onNotify() {
+    window.alert('You will be notified when the product goes on sale');
+  }
+
+  onNotify2(prd:string) {
+    window.alert("You will be notified when " + prd + " is on sale!");
   }
 }
 
